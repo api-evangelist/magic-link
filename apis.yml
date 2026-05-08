@@ -2,28 +2,55 @@ aid: magic-link
 url: https://raw.githubusercontent.com/api-evangelist/magic-link/refs/heads/main/apis.yml
 name: Magic
 x-type: company
-description: >-
-  Magic provides a passwordless authentication and embedded wallet SDK for Web3 apps. Enables email/SMS-based login with non-custodial keys via DKMS (Delegated Key Management System).
+description: Magic is an embedded-wallet and authentication platform offering passwordless
+  login (magic links, OAuth, WebAuthn, SMS) plus white-label Embedded Wallets and
+  Server Wallets. Primary surface is the Magic SDK; an Admin REST API exists for user
+  lookup, token validation, and metadata.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Web3
-  - Auth
-  - Wallet
-  - Embedded
-  - Passwordless
+- Web3
+- Wallets
+- Authentication
+- Embedded Wallets
+- MPC
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+- aid: magic:admin-api
+  name: Magic Admin API
+  description: 'REST API for backend integrations: validate Magic-issued DID tokens,
+    fetch user metadata, log out users, and manage white-label policies.'
+  humanURL: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
+  baseURL: https://api.magic.link
+  tags:
+  - REST
+  - Auth
+  - Admin
+  properties:
+  - type: Documentation
+    url: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
+- aid: magic:server-wallets
+  name: Magic Server Wallets API
+  description: REST API to provision server-managed wallets and sign transactions
+    in backend services.
+  humanURL: https://magic.link/docs/server-wallets/overview
+  baseURL: https://api.magic.link/v1
+  tags:
+  - REST
+  - Wallets
+  properties:
+  - type: Documentation
+    url: https://magic.link/docs/server-wallets/overview
 common:
-  - type: Website
-    url: https://magic.link/
-  - type: Plans
-    url: plans/magic-link-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/magic-link-rate-limits.yml
-  - type: FinOps
-    url: finops/magic-link-finops.yml
+- type: Website
+  url: https://magic.link/
+- type: Plans
+  url: plans/magic-link-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/magic-link-rate-limits.yml
+- type: FinOps
+  url: finops/magic-link-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

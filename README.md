@@ -1,6 +1,8 @@
 # Magic (magic-link)
 
-Magic provides a passwordless authentication and embedded wallet SDK for Web3 apps. Enables email/SMS-based login with non-custodial keys via DKMS (Delegated Key Management System).
+Magic is an embedded-wallet and authentication platform offering passwordless login (magic links, OAuth, WebAuthn, SMS) plus white-label Embedded Wallets and Server Wallets. Primary surface is the Magic SDK; an Admin REST API exists for user lookup, token validation, and metadata.
+
+Magic exposes API reference docs at https://magic.link/docs but no stable public OpenAPI download URL. Honest skip: SDK-first surface; the Admin REST API is the limited HTTP surface.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/magic-link/refs/heads/main/apis.yml)
 
@@ -9,8 +11,12 @@ Magic provides a passwordless authentication and embedded wallet SDK for Web3 ap
 ## Type
 - **x-type:** company
 
-## Tags:
- - Web3, Auth, Wallet, Embedded, Passwordless
+## APIs
+- **Magic Admin API** - REST API for backend integrations: validate Magic-issued DID tokens, fetch user metadata, log out users, and manage white-label policies.
+- **Magic Server Wallets API** - REST API to provision server-managed wallets and sign transactions in backend services.
+
+## Tags
+ - Web3, Wallets, Authentication, Embedded Wallets, MPC
 
 ## Timestamps
 - **Created:** 2026-05-08
@@ -18,9 +24,9 @@ Magic provides a passwordless authentication and embedded wallet SDK for Web3 ap
 
 ## Common Properties
 - [Website](https://magic.link/)
-- [Plans](plans/magic-link-plans-pricing.yml) — placeholder, pipeline reconciles later
-- [RateLimits](rate-limits/magic-link-rate-limits.yml) — placeholder
-- [FinOps](finops/magic-link-finops.yml) — FOCUS-aligned placeholder
+- [Plans](plans/magic-link-plans-pricing.yml)
+- [RateLimits](rate-limits/magic-link-rate-limits.yml)
+- [FinOps](finops/magic-link-finops.yml)
 
 ## Maintainers
 **FN:** Kin Lane

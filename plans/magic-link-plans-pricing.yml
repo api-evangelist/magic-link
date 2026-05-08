@@ -5,37 +5,93 @@ provider: Magic
 providerId: magic-link
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Web3
-- Auth
-- Wallet
-- Embedded
-- Passwordless
+- Wallets
+- Authentication
+- Embedded Wallets
+- MPC
 - Plans
-description: Placeholder plans/pricing artifact for Magic. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled against the provider's documentation.
+description: Magic is sold by monthly active wallets (MAW) with included MAW and per-wallet
+  overage. Higher tiers unlock white-label, custom domains, and SAML SSO.
+notes: Verify against magic.link/pricing.
 sources:
-- https://magic.link/
+- https://magic.link/pricing
 plans:
-- id: magic-link-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: magic-free
+  name: Free / Developer
+  type: free
+  description: Free for development with included MAW.
   entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: varies
-    limit: -1
-    timeFrame: usage
+  - label: Included MAW
+    name: maw
+    type: included
+    metric: wallets
+    limit: 1000
+    timeFrame: month
     geo: global
     unit: 1
-    price: see https://magic.link/
+    price: 0
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: Magic Auth
+  - name: Embedded Wallets
+- id: magic-startup
+  name: Startup
+  type: paid
+  description: Production tier for startups.
+  entries:
+  - label: Monthly Subscription
+    name: monthly_subscription
+    type: flat
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 79
+    userMultiplied: false
+  elements:
+  - name: Higher MAW
+  - name: Email Support
+- id: magic-growth
+  name: Growth
+  type: paid
+  description: Higher-volume tier with white-label.
+  entries:
+  - label: Monthly Subscription
+    name: monthly_subscription
+    type: flat
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 599
+    userMultiplied: false
+  elements:
+  - name: White-Label
+  - name: Custom Domain
+- id: magic-enterprise
+  name: Enterprise
+  type: enterprise
+  description: Custom enterprise contracts with SAML SSO and SOC 2 Type II.
+  entries:
+  - label: Custom
+    name: custom
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: SAML SSO
+  - name: SOC 2 Type II
+  - name: Dedicated Support
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -5,20 +5,20 @@ provider: Magic
 providerId: magic-link
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Web3
-- Auth
-- Wallet
-- Embedded
-- Passwordless
+- Wallets
+- Authentication
+- Embedded Wallets
+- MPC
 - FinOps
-- Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Magic. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: Magic bills as monthly subscription with MAW-based overages. Server wallet
+  operations and Magic Connect features may have separate metering.
+notes: Invoiced via Magic Labs.
 sources:
-- https://magic.link/
+- https://magic.link/pricing
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -26,41 +26,46 @@ alignedWith:
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-publisherName: Magic
+publisherName: Magic Labs, Inc.
 serviceCategory: Web3
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription + MAW
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
   - Usage
   - Purchase
-  - Adjustment
 focusColumns:
   ServiceName: Magic
   ServiceCategory: Web3
   ProviderName: Magic
-  PublisherName: Magic
-  InvoiceIssuerName: Magic
+  PublisherName: Magic Labs
+  InvoiceIssuerName: Magic Labs
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: monthly_active_wallets
+  description: Distinct wallets active per month.
+  unit: wallet
+  aggregation: count_distinct
+  dimensions:
+  - app
+- name: auth_requests
+  description: Authentication requests handled.
+  unit: request
   aggregation: sum
   dimensions:
-  - account
-  - resource
+  - app
+  - method
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Magic dashboard surfaces MAW and auth events.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: One Magic app per product/environment.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Use session refresh to reduce repeat auth calls.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: App owners review MAW vs plan.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
