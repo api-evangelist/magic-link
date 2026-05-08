@@ -1,0 +1,29 @@
+aid: magic-link
+url: https://raw.githubusercontent.com/api-evangelist/magic-link/refs/heads/main/apis.yml
+name: Magic
+x-type: company
+description: >-
+  Magic provides a passwordless authentication and embedded wallet SDK for Web3 apps. Enables email/SMS-based login with non-custodial keys via DKMS (Delegated Key Management System).
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Web3
+  - Auth
+  - Wallet
+  - Embedded
+  - Passwordless
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://magic.link/
+  - type: Plans
+    url: plans/magic-link-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/magic-link-rate-limits.yml
+  - type: FinOps
+    url: finops/magic-link-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
