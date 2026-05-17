@@ -1,7 +1,7 @@
 aid: magic-link
 url: https://raw.githubusercontent.com/api-evangelist/magic-link/refs/heads/main/apis.yml
 name: Magic
-x-type: company
+kind: company
 description: Magic is an embedded-wallet and authentication platform offering passwordless
   login (magic links, OAuth, WebAuthn, SMS) plus white-label Embedded Wallets and
   Server Wallets. Primary surface is the Magic SDK; an Admin REST API exists for user
