@@ -1,0 +1,129 @@
+openapi: 3.1.0
+info:
+  title: Magic Admin API
+  description: >-
+    The Magic Admin REST API provides backend integration endpoints for
+    validating Magic-issued DID tokens, retrieving user metadata, and logging
+    users out. These endpoints back the official Magic Admin SDKs (Node,
+    Python, Go, Ruby, Java, PHP) and require the workspace Secret API Key in
+    the `X-Magic-Secret-Key` header. Endpoint paths were derived from the
+    public Magic Admin JS SDK source (magic-admin-js).
+  version: "1.0.0"
+  contact:
+    name: Magic
+    url: https://docs.magic.link/
+servers:
+  - url: https://api.toaster.magic.link
+    description: Magic Admin API
+security:
+  - SecretKey: []
+tags:
+  - name: Users
+    description: Magic user metadata and session management
+  - name: Client
+    description: SDK client configuration
+paths:
+  /v1/admin/client:
+    get:
+      tags: [Client]
+      summary: Get client configuration
+      description: >-
+        Returns client configuration including the `client_id` and `app_scope`
+        used during Admin SDK initialization.
+      operationId: getClientConfig
+      responses:
+        '200':
+          description: Client configuration
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  client_id:
+                    type: string
+                  app_scope:
+                    type: string
+  /v1/admin/user:
+    get:
+      tags: [Users]
+      summary: Get user metadata
+      description: >-
+        Retrieve metadata for a Magic user identified by their issuer DID. The
+        optional `wallet_type` query restricts the wallets returned in the
+        response (e.g. `NONE`, `ETH`, `SOLANA`).
+      operationId: getUserMetadata
+      parameters:
+        - name: issuer
+          in: query
+          required: true
+          description: Magic-issued DID (e.g. `did:ethr:0x...`)
+          schema:
+            type: string
+        - name: wallet_type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [NONE, ETH, SOLANA, ANY]
+            default: NONE
+      responses:
+        '200':
+          description: User metadata
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  issuer:
+                    type: string
+                    nullable: true
+                  public_address:
+                    type: string
+                    nullable: true
+                  email:
+                    type: string
+                    nullable: true
+                  oauth_provider:
+                    type: string
+                    nullable: true
+                  phone_number:
+                    type: string
+                    nullable: true
+                  username:
+                    type: string
+                    nullable: true
+                  wallets:
+                    type: array
+                    nullable: true
+                    items:
+                      type: object
+  /v1/admin/user/logout:
+    post:
+      tags: [Users]
+      summary: Logout a user by issuer
+      description: >-
+        Invalidates all sessions for the Magic user identified by their issuer
+        DID. The SDK helpers `logoutByPublicAddress` and `logoutByToken`
+        resolve to an issuer and call this endpoint.
+      operationId: logoutUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [issuer]
+              properties:
+                issuer:
+                  type: string
+                  description: The user's Magic-issued DID
+      responses:
+        '200':
+          description: User logged out
+components:
+  securitySchemes:
+    SecretKey:
+      type: apiKey
+      in: header
+      name: X-Magic-Secret-Key
+      description: Workspace secret API key from the Magic dashboard.
