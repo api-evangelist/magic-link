@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Admin API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Magic-Secret-Key",
+      "value": "{{X-Magic-Secret-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Client",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get client configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toaster.magic.link/v1/admin/client"
+          },
+          "docs": "Returns client configuration including the `client_id` and `app_scope` used during Admin SDK initialization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get user metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toaster.magic.link/v1/admin/user",
+            "params": [
+              {
+                "name": "issuer",
+                "value": "",
+                "type": "query",
+                "description": "Magic-issued DID (e.g. `did:ethr:0x...`)"
+              },
+              {
+                "name": "wallet_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve metadata for a Magic user identified by their issuer DID. The optional `wallet_type` query restricts the wallets returned in the response (e.g. `NONE`, `ETH`, `SOLANA`)."
+        },
+        {
+          "info": {
+            "name": "Logout a user by issuer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.toaster.magic.link/v1/admin/user/logout",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invalidates all sessions for the Magic user identified by their issuer DID. The SDK helpers `logoutByPublicAddress` and `logoutByToken` resolve to an issuer and call this endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
