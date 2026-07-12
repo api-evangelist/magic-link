@@ -43,6 +43,10 @@ apis:
     - type: Documentation
       url: https://magic.link/docs/server-wallets/overview
 common:
+  - type: DomainSecurity
+    url: security/magic-link-domain-security.yml
+  - type: Authentication
+    url: authentication/magic-link-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/magiclabs-inc
   - type: Website
@@ -53,6 +57,8 @@ common:
     url: rate-limits/magic-link-rate-limits.yml
   - type: FinOps
     url: finops/magic-link-finops.yml
+  - url: https://medium.com/feed/magiclabs
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

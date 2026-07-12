@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/magic-link-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: SecretKey
+  type: apiKey
+  in: header
+  parameter: X-Magic-Secret-Key
+  description: Workspace secret API key from the Magic dashboard.
+  sources:
+  - openapi/magic-link-openapi.yml
