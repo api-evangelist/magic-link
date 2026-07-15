@@ -43,6 +43,8 @@ apis:
     - type: Documentation
       url: https://magic.link/docs/server-wallets/overview
 common:
+  - type: AgenticAccess
+    url: agentic-access/magic-link-agentic-access.yml
   - type: DomainSecurity
     url: security/magic-link-domain-security.yml
   - type: Authentication
