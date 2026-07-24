@@ -1,0 +1,43 @@
+openapi: 3.1.0
+info:
+  title: Magic Admin Client API
+  description: The Magic Admin REST API provides backend integration endpoints for validating Magic-issued DID tokens, retrieving user metadata, and logging users out. These endpoints back the official Magic Admin SDKs (Node, Python, Go, Ruby, Java, PHP) and require the workspace Secret API Key in the `X-Magic-Secret-Key` header. Endpoint paths were derived from the public Magic Admin JS SDK source (magic-admin-js).
+  version: 1.0.0
+  contact:
+    name: Magic
+    url: https://docs.magic.link/
+servers:
+- url: https://api.toaster.magic.link
+  description: Magic Admin API
+security:
+- SecretKey: []
+tags:
+- name: Client
+  description: SDK client configuration
+paths:
+  /v1/admin/client:
+    get:
+      tags:
+      - Client
+      summary: Get client configuration
+      description: Returns client configuration including the `client_id` and `app_scope` used during Admin SDK initialization.
+      operationId: getClientConfig
+      responses:
+        '200':
+          description: Client configuration
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  client_id:
+                    type: string
+                  app_scope:
+                    type: string
+components:
+  securitySchemes:
+    SecretKey:
+      type: apiKey
+      in: header
+      name: X-Magic-Secret-Key
+      description: Workspace secret API key from the Magic dashboard.
