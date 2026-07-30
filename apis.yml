@@ -6,7 +6,20 @@ description: Magic is an embedded-wallet and authentication platform offering pa
   login (magic links, OAuth, WebAuthn, SMS) plus white-label Embedded Wallets and
   Server Wallets. Primary surface is the Magic SDK; an Admin REST API exists for user
   lookup, token validation, and metadata.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/magic-link.png
 tags:
   - Web3
   - Wallets
@@ -17,31 +30,51 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: magic:admin-api
-    name: Magic Admin API
-    description: 'REST API for backend integrations: validate Magic-issued DID tokens,
-      fetch user metadata, log out users, and manage white-label policies.'
-    humanURL: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
-    baseURL: https://api.magic.link
-    tags:
-    - REST
-    - Auth
-    - Admin
-    properties:
-    - type: Documentation
-      url: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
-  - aid: magic:server-wallets
-    name: Magic Server Wallets API
-    description: REST API to provision server-managed wallets and sign transactions
-      in backend services.
-    humanURL: https://magic.link/docs/server-wallets/overview
-    baseURL: https://api.magic.link/v1
-    tags:
-    - REST
-    - Wallets
-    properties:
-    - type: Documentation
-      url: https://magic.link/docs/server-wallets/overview
+- aid: magic:admin-api
+  name: Magic Admin API
+  description: >-
+    REST API for backend integrations: validate Magic-issued DID tokens, fetch user metadata, log out
+    users, and manage white-label policies.
+  humanURL: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
+  baseURL: https://api.magic.link
+  tags:
+  - REST
+  - Auth
+  - Admin
+  properties:
+  - type: Documentation
+    url: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
+- aid: magic:server-wallets
+  name: Magic Server Wallets API
+  description: REST API to provision server-managed wallets and sign transactions in backend services.
+  humanURL: https://magic.link/docs/server-wallets/overview
+  baseURL: https://api.magic.link/v1
+  tags:
+  - REST
+  - Wallets
+  properties:
+  - type: Documentation
+    url: https://magic.link/docs/server-wallets/overview
+- aid: magic-link:magic-link-client-api
+  name: Magic Client API
+  description: SDK client configuration
+  humanURL: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
+  baseURL: https://api.magic.link
+  tags:
+  - Client
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-link-client-api-openapi.yml
+- aid: magic-link:magic-link-users-api
+  name: Magic Users API
+  description: Magic user metadata and session management
+  humanURL: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
+  baseURL: https://api.magic.link
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/magic-link-users-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/magic-link-agentic-access.yml
