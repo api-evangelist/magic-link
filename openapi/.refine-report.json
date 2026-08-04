@@ -1,0 +1,16 @@
+{
+  "provider": "magic-link",
+  "sources": [
+    "magic-link-client-api-openapi.yml",
+    "magic-link-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "magic-link-client-api-openapi.yml",
+    "magic-link-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
