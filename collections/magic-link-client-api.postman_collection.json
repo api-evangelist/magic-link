@@ -1,0 +1,131 @@
+{
+  "item": [
+    {
+      "id": "824fe0d4-af71-4ea8-b50d-2e9b9c7ece3a",
+      "name": "Client",
+      "description": {
+        "content": "SDK client configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cbcdb379-ba6c-4e74-ad88-babb7dc7a3eb",
+          "name": "Get client configuration",
+          "request": {
+            "name": "Get client configuration",
+            "description": {
+              "content": "Returns client configuration including the `client_id` and `app_scope` used during Admin SDK initialization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "admin",
+                "client"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40c83fa3-6369-4b85-afb5-b670ef070cd0",
+              "name": "Client configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "admin",
+                    "client"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Magic-Secret-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"client_id\": \"string\",\n  \"app_scope\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toaster.magic.link",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Magic-Secret-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0c534301-7de2-4a0d-ac62-48d93d7cdfe6",
+    "name": "Magic Admin Client API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Magic Admin REST API provides backend integration endpoints for validating Magic-issued DID tokens, retrieving user metadata, and logging users out. These endpoints back the official Magic Admin SDKs (Node, Python, Go, Ruby, Java, PHP) and require the workspace Secret API Key in the `X-Magic-Secret-Key` header. Endpoint paths were derived from the public Magic Admin JS SDK source (magic-admin-js).\n\nContact Support:\n Name: Magic",
+      "type": "text/plain"
+    }
+  }
+}

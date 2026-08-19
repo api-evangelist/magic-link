@@ -1,0 +1,249 @@
+{
+  "item": [
+    {
+      "id": "5b4455a1-957b-4f9f-bf5e-d564909f6766",
+      "name": "Users",
+      "description": {
+        "content": "Magic user metadata and session management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1bd60301-cba4-4c0d-8458-b0168afb3eb1",
+          "name": "Get user metadata",
+          "request": {
+            "name": "Get user metadata",
+            "description": {
+              "content": "Retrieve metadata for a Magic user identified by their issuer DID. The optional `wallet_type` query restricts the wallets returned in the response (e.g. `NONE`, `ETH`, `SOLANA`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "admin",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "issuer",
+                  "value": "<string>",
+                  "description": "(Required) Magic-issued DID (e.g. `did:ethr:0x...`)"
+                },
+                {
+                  "disabled": false,
+                  "key": "wallet_type",
+                  "value": "NONE"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a693aac3-1bfe-4270-9327-66cd2ae9af7c",
+              "name": "User metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "admin",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "issuer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "wallet_type",
+                      "value": "NONE"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Magic-Secret-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"issuer\": \"string\",\n  \"public_address\": \"string\",\n  \"email\": \"string\",\n  \"oauth_provider\": \"string\",\n  \"phone_number\": \"string\",\n  \"username\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80b4e931-0b24-44cd-a20c-5791124243e1",
+          "name": "Logout a user by issuer",
+          "request": {
+            "name": "Logout a user by issuer",
+            "description": {
+              "content": "Invalidates all sessions for the Magic user identified by their issuer DID. The SDK helpers `logoutByPublicAddress` and `logoutByToken` resolve to an issuer and call this endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "admin",
+                "user",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"issuer\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4f3a49ea-c740-4dd2-9d14-08c0762d47cb",
+              "name": "User logged out",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "admin",
+                    "user",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Magic-Secret-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"issuer\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.toaster.magic.link",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Magic-Secret-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "122e2fef-92ab-4909-a558-f6f439a2f730",
+    "name": "Magic Admin Client Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Magic Admin REST API provides backend integration endpoints for validating Magic-issued DID tokens, retrieving user metadata, and logging users out. These endpoints back the official Magic Admin SDKs (Node, Python, Go, Ruby, Java, PHP) and require the workspace Secret API Key in the `X-Magic-Secret-Key` header. Endpoint paths were derived from the public Magic Admin JS SDK source (magic-admin-js).\n\nContact Support:\n Name: Magic",
+      "type": "text/plain"
+    }
+  }
+}

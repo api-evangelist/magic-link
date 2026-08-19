@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Magic Admin Client API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Magic-Secret-Key",
+      "value": "{{X-Magic-Secret-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Client",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get client configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.toaster.magic.link/v1/admin/client"
+          },
+          "docs": "Returns client configuration including the `client_id` and `app_scope` used during Admin SDK initialization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
