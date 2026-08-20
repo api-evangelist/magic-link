@@ -39,6 +39,10 @@ apis:
   baseURL: https://api.magic.link
   tags:
   - REST
+  - Authentication
+  - Admin
+  tags_raw:
+  - REST
   - Auth
   - Admin
   properties:
@@ -61,6 +65,8 @@ apis:
   humanURL: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
   baseURL: https://api.magic.link
   tags:
+  - Clients
+  tags_raw:
   - Client
   properties:
   - type: OpenAPI
@@ -71,6 +77,8 @@ apis:
   humanURL: https://magic.link/docs/api-reference/server-side-sdks/admin-sdk
   baseURL: https://api.magic.link
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
