@@ -6,6 +6,18 @@ description: Magic is an embedded-wallet and authentication platform offering pa
   login (magic links, OAuth, WebAuthn, SMS) plus white-label Embedded Wallets and
   Server Wallets. Primary surface is the Magic SDK; an Admin REST API exists for user
   lookup, token validation, and metadata.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
