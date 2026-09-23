@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Magic Admin Client Users API
+  title: Magic Admin Users API
   description: The Magic Admin REST API provides backend integration endpoints for validating Magic-issued DID tokens, retrieving user metadata, and logging users out. These endpoints back the official Magic Admin SDKs (Node, Python, Go, Ruby, Java, PHP) and require the workspace Secret API Key in the `X-Magic-Secret-Key` header. Endpoint paths were derived from the public Magic Admin JS SDK source (magic-admin-js).
   version: 1.0.0
   contact:
