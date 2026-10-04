@@ -97,6 +97,9 @@ apis:
   - type: OpenAPI
     url: openapi/magic-link-users-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/magic-link-capability-edges.yml
+    name: Magic Business Capability Map
   - type: AgenticAccess
     url: agentic-access/magic-link-agentic-access.yml
   - type: DomainSecurity

@@ -1,0 +1,27 @@
+slug: magic-link
+provider: Magic
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Users
+  spec_file: magic-link-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: GET /v1/admin/user  getUserMetadata; POST /v1/admin/user/logout  logoutUser  Logout a user
+    by issuer; "validating Magic-issued DID tokens, retrieving user metadata, and logging users out"
+  reason: The operations administer authenticated end-user identities and sessions (token validation,
+    user metadata lookup, forced logout) for a passwordless authentication platform, which is identity
+    and access management. Confidence held below 0.8 because the surface is only two endpoints and sits
+    close to developer-platform identity plumbing.
