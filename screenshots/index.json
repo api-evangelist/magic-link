@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "magic-link",
+    "captured_at": "2026-10-11T191210",
+    "source_url": "https://magic.link/",
+    "source_type": "Website",
+    "file": "magic-link-2026-10-11T191210.png",
+    "bytes": 280345,
+    "capture": "playwright-local"
+  }
+]
