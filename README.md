@@ -1,4 +1,4 @@
-# Magic (magic-link)
+# Magic
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,69 +66,124 @@
 
 Magic is an embedded-wallet and authentication platform offering passwordless login (magic links, OAuth, WebAuthn, SMS) plus white-label Embedded Wallets and Server Wallets. Primary surface is the Magic SDK; an Admin REST API exists for user lookup, token validation, and metadata.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/magic-link/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/magic-link/refs/heads/main/apis.yml)
+**Areas:** Web3 · Wallets · Authentication · Embedded Wallets · MPC
 
-## Tags
+## Magic on APIs.io
 
-- Web3
-- Wallets
-- Authentication
-- Embedded Wallets
-- MPC
+Everything profiled for Magic is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/magic-link/](https://apis.io/providers/magic-link/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [Magic Admin API](https://apis.io/apis/magic-link/admin-api/) — REST API for backend integrations: validate Magic-issued DID tokens, fetch user metadata, log out users, and manage white-label policies.
+- [Magic Server Wallets API](https://apis.io/apis/magic-link/server-wallets/) — REST API to provision server-managed wallets and sign transactions in backend services.
+- [Magic Client API](https://apis.io/apis/magic-link/magic-link-client-api/) — SDK client configuration
+- [Magic Users API](https://apis.io/apis/magic-link/magic-link-users-api/) — Magic user metadata and session management
 
-## APIs
+### Published properties
 
-### Magic Admin API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for backend integrations: validate Magic-issued DID tokens, fetch user metadata, log out users, and manage white-label policies.
+#### MCP servers (1)
 
-- **Human URL:** [https://magic.link/docs/api-reference/server-side-sdks/admin-sdk](https://magic.link/docs/api-reference/server-side-sdks/admin-sdk)
-- **Base URL:** `https://api.magic.link`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [magic-link](https://apis.io/servers/magic-link/magic-link/)
 
-- REST
-- Auth
-- Admin
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://magic.link/docs/api-reference/server-side-sdks/admin-sdk)
-- [Postman Collection](collections/magic-link.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/magic-link.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Magic Link Agentic Access](https://apis.io/agentic-access/magic-link/magic-link-agentic-access/)
 
-### Magic Server Wallets API
+#### Collections (3)
 
-REST API to provision server-managed wallets and sign transactions in backend services.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://magic.link/docs/server-wallets/overview](https://magic.link/docs/server-wallets/overview)
-- **Base URL:** `https://api.magic.link/v1`
+- [Magic Admin API](https://apis.io/collections/magic-link/open-magic-link/)
+- [Magic Admin Client API](https://apis.io/collections/magic-link/open-magic-link-client-api/)
+- [Magic Admin Client Users API](https://apis.io/collections/magic-link/open-magic-link-users-api/)
 
-#### Tags
+#### Security (2)
 
-- REST
-- Wallets
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Magic Link Authentication](https://apis.io/security/magic-link/magic-link-authentication/)
+- [Magic Link Domain Security](https://apis.io/security/magic-link/magic-link-domain-security/)
 
-- [Documentation](https://magic.link/docs/server-wallets/overview)
-- [Postman Collection](collections/magic-link.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/magic-link.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-## Common Properties
+Published plans, tiers and prices.
 
-- [LinkedIn](https://www.linkedin.com/company/magiclabs-inc)
+- [Magic Link Plans Pricing](https://apis.io/plans/magic-link/magic-link-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Magic Link Rate Limits](https://apis.io/rate-limits/magic-link/magic-link-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Magic Link Finops](https://apis.io/finops/magic-link/magic-link-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://magic.link/)
-- [Plans](plans/magic-link-plans-pricing.yml)
-- [Rate Limits](rate-limits/magic-link-rate-limits.yml)
-- [Fin Ops](finops/magic-link-finops.yml)
+- [Blog](https://medium.com/feed/magiclabs)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 11.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 7.9 |
+
+**Agent readiness 20.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/magic-link/](https://apis.io/providers/magic-link/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Magic: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/magic-link/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
